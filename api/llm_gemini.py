@@ -4,12 +4,14 @@
  Author: Sanfor Chow
  Date: 2024-04-25 20:18:20
  LastEditors: Sanfor Chow
- LastEditTime: 2024-04-25 20:19:24
- FilePath: /script/llm.py
+ LastEditTime: 2024-04-26 22:22:04
+ FilePath: /script/api/llm_gemini.py
 '''
+import os
 import google.generativeai as genai
 
-
+GENAI_API_KEY = os.getenv('genai_api_key')
+ai_max_length = 1000
 
 def split_text_into_chunks(text, max_length=ai_max_length):
     """
@@ -72,7 +74,7 @@ def rewrite_text_with_genai(text, prompt="Please rewrite this text:"):
     return rewritten_text
 
 
+
 if __name__ == '__main__':
-    res = rewrite_text_with_genai(text='你是谁', prompt=prompt)
+    res = rewrite_text_with_genai(text='', prompt='你是谁')
     print(res)
-    print(prompt)
