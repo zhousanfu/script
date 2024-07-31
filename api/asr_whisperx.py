@@ -3,8 +3,8 @@
 '''
  Author: Sanfor Chow
  Date: 2024-05-05 16:13:28
- LastEditors: Sanfor Chow
- LastEditTime: 2024-05-05 16:14:18
+ LastEditors: courageux_san WX
+ LastEditTime: 2024-07-31 08:50:09
  FilePath: /script/api/asr_whisperx.py
 '''
 import json
@@ -31,7 +31,7 @@ def init_whisperx():
     load_whisper_model()
     load_align_model()
     load_diarize_model()
-    
+
 def load_whisper_model(model_name: str='base', download_root='models/ASR/whisper', device='auto'):
     global whisper_model
     if whisper_model is not None:
@@ -56,7 +56,7 @@ def load_align_model(language='en', device='auto'):
         language_code=language_code, device=device)
     t_end = time.time()
     logger.info(f'Loaded alignment model: {language_code} in {t_end - t_start:.2f}s')
-    
+
 def load_diarize_model(device='auto'):
     global diarize_model
     if diarize_model is not None:
@@ -148,7 +148,7 @@ def generate_speaker_audio(folder, transcript):
     for speaker, audio in speaker_dict.items():
         speaker_file_path = os.path.join(
             speaker_folder, f"{speaker}.wav")
-        save_wav(audio, speaker_file_path)
+        # save_wav(audio, speaker_file_path)
 
 def transcribe_all_audio_under_folder(folder, model_name: str = 'base', download_root='models/ASR/whisper', device='auto', batch_size=16, diarization=True, min_speakers=None, max_speakers=None):
     for root, dirs, files in os.walk(folder):
@@ -159,4 +159,3 @@ def transcribe_all_audio_under_folder(folder, model_name: str = 'base', download
 
 if __name__ == '__main__':
     transcribe_all_audio_under_folder('videos')
-    
