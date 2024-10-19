@@ -4,7 +4,7 @@
  Author: Sanfor Chow
  Date: 2024-04-25 20:18:20
  LastEditors: courageux_san WX
- LastEditTime: 2024-07-31 09:05:23
+ LastEditTime: 2024-07-31 11:13:47
  FilePath: /script/api/llm_gemini.py
 '''
 import os
@@ -147,10 +147,10 @@ def gemini_chat(text):
     print(result.content)
 
 # genai代理
-def genai_proxy(url, api_key, mode_name, prompt):
+def genai_proxy(url, mode_name, prompt):
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer "+ api_key
+        "Authorization": "Bearer "+ GENAI_API_KEY
     }
     data = {
         "model": mode_name,
@@ -171,7 +171,6 @@ if __name__ == '__main__':
 
     res = genai_proxy(
         url="https://gemini-openai-proxy2.zeabur.app/v1/chat/completions",
-        api_key=GENAI_API_KEY,
         mode_name="gpt-4",
         prompt="你是谁?"
         )
