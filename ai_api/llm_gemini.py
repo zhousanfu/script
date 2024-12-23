@@ -4,14 +4,14 @@
  Author: Sanfor Chow
  Date: 2024-04-25 20:18:20
 LastEditors: sanford courageux_san@wechat.com
-LastEditTime: 2024-12-22 23:19:17
+LastEditTime: 2024-12-24 07:35:03
 FilePath: /script/ai_api/llm_gemini.py
 '''
 import os
 import requests
 import PIL.Image
 from io import BytesIO
-import google.generativeai as genai
+from google import genai
 from typing import Any, List, Mapping, Optional
 from langchain.llms.base import LLM
 from langchain.callbacks.manager import CallbackManagerForLLMRun
@@ -75,47 +75,12 @@ def split_text_into_chunks(text, max_length=ai_max_length):
     return chunks
 
 # geminni 直连 文字
-def rewrite_text_with_genai(text, model_name="gemini-pro", prompt="Please rewrite this text:"):
-    chunks = split_text_into_chunks(text)
-    rewritten_text = ''
-    genai.configure(api_key=GENAI_API_KEY)
-    model = genai.GenerativeModel(model_name)
-    for chunk in chunks:
-        _prompt=f"{prompt}\n{chunk}",
-        response = model.generate_content(
-            contents=_prompt, 
-            generation_config=genai.GenerationConfig(
-                temperature=0.1,
-            ),
-            stream=True,
-            safety_settings = [
-                {
-                    "category": "HARM_CATEGORY_DANGEROUS",
-                    "threshold": "BLOCK_NONE",
-                },
-                {
-                    "category": "HARM_CATEGORY_HARASSMENT",
-                    "threshold": "BLOCK_NONE",
-                },
-                {
-                    "category": "HARM_CATEGORY_HATE_SPEECH",
-                    "threshold": "BLOCK_NONE",
-                },
-                {
-                    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                    "threshold": "BLOCK_NONE",
-                },
-                {
-                    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-                    "threshold": "BLOCK_NONE",
-                },
-            ]
-        )
-        for _chunk in response:
-            if _chunk.text is not None:
-                rewritten_text += _chunk.text.strip()
-
-    return rewritten_text
+def gemini_chat(text, model_name="gemini-pro", prompt=""):
+    client = genai.Client(api_key=GENAI_API_KEY)
+    response = client.models.generate_content(
+        model='gemini-pro', contents=f"{prompt}\n{text}"
+    )
+    return response.text
 
 # gemini 直连 多媒体
 def gemini_media(image_url, prompt):
@@ -159,7 +124,8 @@ def gemini_chat_proxy(url, prompt, mode_name="gpt-4"):
 
 
 if __name__ == '__main__':
-    res = rewrite_text_with_genai(text='', prompt='你是谁')
+    res = gemini_chat(text='你是谁')
+    print(res)
 
     # res = gemini_media(
     #     image_url='https://mmilabel-1258344707.cos.ap-guangzhou.myqcloud.com/upload/unpack/cardli/20240507/image/1005129185_b1d78a1a84f376cdf76980885253c666.jpg_ocrmt_new.jpg',
@@ -172,4 +138,6 @@ if __name__ == '__main__':
     #     prompt="你是谁?"
     #     )
     # print(res)
+
+
 
