@@ -1,0 +1,29 @@
+{
+    "FOLLOW_COOKES": [
+        {   
+            "name":"sanford-code github 2",
+            "csrf": "84df260ad1437b1022414ad79edd63090e09f0fde1cab8657f97582dadd68a9e",
+            "cookie": "authjs.session-token=418806e0-325f-48e4-8745-26719e72f0b9; authjs.callback-url=https%3A%2F%2Fapp.follow.is; authjs.csrf-token=84df260ad1437b1022414ad79edd63090e09f0fde1cab8657f97582dadd68a9e%7C9c2901fc5b323a5bd8083f8f23a54cd0fd00063158b85e9b94a66d116ed4b92c"
+        },
+        {   
+            "name": "SanfordCi Goggle 2",
+            "csrf": "67dffdeea6f256560852c03e47d13de3b500d8afce7a81e479cf7f0ed1dcc1ea", 
+            "cookie": "authjs.csrf-token=67dffdeea6f256560852c03e47d13de3b500d8afce7a81e479cf7f0ed1dcc1ea%7C9587b0965d95b030087b1cfbfdff43685b214b208351feefd0000472bf8dfa79; authjs.callback-url=https%3A%2F%2Fapp.follow.is; authjs.session-token=1dd717d1-1013-4c78-863e-9b5df6b60f99"
+        },
+        {
+            "name": "Sanford Goggle 1",
+            "csrf": "d6410e1c67f115a8cbbbe94676cae883bef1b5da576f695cca749fc0e71166ae",
+            "cookie": "authjs.session-token=493b966c-9a15-417f-9e0b-134789cfcdad; authjs.callback-url=https%3A%2F%2Fapi.follow.is; authjs.csrf-token=d6410e1c67f115a8cbbbe94676cae883bef1b5da576f695cca749fc0e71166ae%7C33f90cb84172fc4162984c90af5d9e4b81ce749e9f713451188ea3367803732d; ph_phc_EZGEvBt830JgBHTiwpHqJAEbWnbv63m5UpreojwEWNL_posthog=%7B%22distinct_id%22%3A%2269537593765947392%22%2C%22%24sesid%22%3A%5B1729483728160%2C%220192ad42-640d-7a5b-97f9-7a77b97ec443%22%2C1729483662349%5D%2C%22%24epp%22%3Atrue%7D"
+        },
+        {   
+            "name": "sanford github 1",
+            "csrf": "4ba5d6d6a0ae626db54de0ddc90b75182feccd3c64c65d5b0280d3c669d3e236",
+            "cookie": "ph_phc_EZGEvBt830JgBHTiwpHqJAEbWnbv63m5UpreojwEWNL_posthog=%7B%22distinct_id%22%3A%2261381891340516352%22%2C%22%24sesid%22%3A%5B1729483876655%2C%220192ad2b-fb64-7c62-8a31-104f0bd5cf3f%22%2C1729482193763%5D%2C%22%24epp%22%3Atrue%7D; authjs.session-token=f2a8f359-a724-4555-b3e4-374b8e37635d; authjs.callback-url=https%3A%2F%2Fapi.follow.is; authjs.csrf-token=4ba5d6d6a0ae626db54de0ddc90b75182feccd3c64c65d5b0280d3c669d3e236%7C8fa603f4b8245ef49b7dbb022e5ef76848e943229f06bbb42e016c9bdcb1c7af"
+        },
+        {
+            "name": "mute-muck",
+            "csrf":"6e02ef4deeecf3de28250c1cd7cd7e9c6a0c7ea3d4e5cafda5f588bae3595b8b",
+            "cookie": "authjs.csrf-token=6e02ef4deeecf3de28250c1cd7cd7e9c6a0c7ea3d4e5cafda5f588bae3595b8b%7C11acfbe682198f0fcc8567a716c9fc171a51b10510db41fb9a8652aa13570e76; authjs.callback-url=https%3A%2F%2Ffollow.is%2Fairdrop; authjs.session-token=19beea98-95c9-4868-95ce-948679e7c51d"
+        }
+    ]
+}
